@@ -98,11 +98,13 @@ class linkedList {
 
     toString() {
         if (!this.head) return "null";
+
         let output = "";
         let counter = this.head;
-        while (counter !== null) {
-            output = `${output} ( ${counter.value} ) -> `;
+        while (counter.next !== null) {
+            output = `${output} ( ${counter.value} ) ->`;
             counter = counter.next;
+            
         }
         return `${output} ( ${counter.value} ) -> null`;
     };
@@ -124,17 +126,4 @@ list.append("parrot");
 list.prepend("hamster");
 list.append("snake");
 list.append("turtle");
-
-
-console.log(list.prepend(1));
-console.log(list.append(2));
-console.log(list.append(3));
-console.log(list.append(4));
-console.log(list.size());
-console.log(list.getHead());
-console.log(list.getTail());
-console.log(list.at(2));
-console.log(list.pop());
-console.log(list.contains(3));
-console.log(list.find(2));
 console.log(list.toString());
