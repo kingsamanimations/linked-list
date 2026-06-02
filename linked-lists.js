@@ -6,18 +6,18 @@ class linkedList {
     append(value) {
         // Check for empty node
         if (!this.head) {
-            this.head = new Node(value);
+            this.head = new node(value);
             return this;
         }
-        let tail = this.getTail();
-        tail.next = new Node(value);
+        let tail = this.tail();
+        tail.next = new node(value);
         return tail;
     };
 
     prepend(value) {
         // Check for empty node
         if (!this.head) {
-            this.head = new Node(value);
+            this.head = new node(value);
             return this;
         }
     };
@@ -40,11 +40,12 @@ class linkedList {
     tail() {
         // Check for empty list
         if (!this.head) return null;
-        let tail = this.read;
+        let tail = this.head;
         while (tail.next !== null) {
-            tail = tail.next;
+          tail = tail.next;
         }
         return tail;
+
     };
 
     at(index) {
@@ -115,11 +116,25 @@ class node {
 };
 
 // example uses class syntax - adjust as necessary
-const list = new LinkedList();
+const list = new linkedList();
 
 list.append("dog");
-list.append("cat");
+list.prepend("cat");
 list.append("parrot");
-list.append("hamster");
+list.prepend("hamster");
 list.append("snake");
 list.append("turtle");
+
+
+console.log(list.prepend(1));
+console.log(list.append(2));
+console.log(list.append(3));
+console.log(list.append(4));
+console.log(list.size());
+console.log(list.getHead());
+console.log(list.getTail());
+console.log(list.at(2));
+console.log(list.pop());
+console.log(list.contains(3));
+console.log(list.find(2));
+console.log(list.toString());
